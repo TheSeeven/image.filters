@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "image.filters", "image.filters.vcxproj", "{216FAD4A-2A32-441D-B093-5133D57A450D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{216FAD4A-2A32-441D-B093-5133D57A450D}.Debug|x64.ActiveCfg = Debug|x64
+		{216FAD4A-2A32-441D-B093-5133D57A450D}.Debug|x64.Build.0 = Debug|x64
+		{216FAD4A-2A32-441D-B093-5133D57A450D}.Release|x64.ActiveCfg = Release|x64
+		{216FAD4A-2A32-441D-B093-5133D57A450D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9BD0A232-F7D6-4CF4-93CC-006FB1E1D05C}
+	EndGlobalSection
+EndGlobal
