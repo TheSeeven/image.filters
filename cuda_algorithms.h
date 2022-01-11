@@ -3,7 +3,7 @@
 
 /* My own implementation : Negative */
 __global__ void alg1(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		source[id] = 255 - source[id];
 		source[id + 1] = 255 - source[id + 1];
@@ -14,7 +14,7 @@ __global__ void alg1(byte* source, uint32_t filesize) {
 
 /* My own implementation : Grayscale */
 __global__ void alg2(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		source[id] = 0.299 * source[id] + 0.587 * source[id + 1] + 0.114 * source[id + 2];
 		source[id + 1] = source[id];
@@ -24,7 +24,7 @@ __global__ void alg2(byte* source, uint32_t filesize) {
 
 /* My own implementation : Sepia */
 __global__ void alg3(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		source[id] = 0.272 * source[id + 2] + 0.534 * source[id + 1] + 0.131 * source[id];
 		source[id + 1] = 0.349 * source[id + 2] + 0.686 * source[id + 1] + 0.168 * source[id];
@@ -34,7 +34,7 @@ __global__ void alg3(byte* source, uint32_t filesize) {
 
 /* My own idea : somehow increses contrast? dunno, just a random ideea */
 __global__ void alg4(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		if(source[id] < 40)
 			source[id] += 50;
@@ -54,7 +54,7 @@ __global__ void alg4(byte* source, uint32_t filesize) {
 /* My own idea : I think this loogs cool, since it makes
 				everything more dramatic by decreasing the luminosity of every pixel */
 __global__ void alg5(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		if (source[id + 1] > 70) {
 			if (source[id] < 60)
@@ -77,7 +77,7 @@ __global__ void alg5(byte* source, uint32_t filesize) {
 /* My own idea : This will create a fuzzy image.
 				 It plays with bith by overflowing them in multiplication */
 __global__ void alg6(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		source[id] =  source[id] * source[id + 1];
 		source[id + 1] = source[id + 1] * source[id + 2];
@@ -87,7 +87,7 @@ __global__ void alg6(byte* source, uint32_t filesize) {
 
 /* My own idea : Same as alg6, but with adition */
 __global__ void alg7(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	if (id < filesize) {
 		source[id] = source[id] + source[id + 1];
 		source[id + 1] = source[id + 1] + source[id + 2];
@@ -97,7 +97,7 @@ __global__ void alg7(byte* source, uint32_t filesize) {
 
 /* My own idea : Swaping color between subpixels */
 __global__ void alg8(byte* source, uint32_t filesize) {
-	uint32_t id = 3 * ((blockIdx.x * THERADS) + threadIdx.x);
+	uint32_t id = 3 * ((blockIdx.x * THREADS) + threadIdx.x);
 	byte temp = source[id];
 	if (id < filesize) {
 		source[id] = source[id + 1];

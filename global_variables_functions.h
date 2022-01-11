@@ -52,7 +52,7 @@ byte* alg6_output;
 byte* alg7_output;
 byte* alg8_output;
 
-__device__ uint16 THERADS = threads;
+__device__ uint16 THREADS = threads;
 
 /*		-------GLOBAL VARIABLES-------		*/
 
@@ -141,8 +141,6 @@ void freeMemory() {
 	cudaFree(alg6_input);
 	cudaFree(alg7_input);
 	cudaFree(alg8_input);
-	
-
 }
 
 /* Alocate memory on the GPU for every algorithm and copies the original 
